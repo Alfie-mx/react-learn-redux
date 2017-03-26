@@ -6,8 +6,11 @@ const Comments = React.createClass({
         return(
             <div className="comment" key={idx}>
                 <p>
-                    <strong>{comment.user}</strong>
-                    <button className="remove-comment" >&times;</button>
+                    <strong>{comment.user}</strong> {comment.text}
+                    <button className="remove-comment"
+                            onClick={this.props.removeComment.bind(null, this.props.params.postId, idx)} >
+                        &times;
+                    </button>
                 </p>
             </div>
         )
@@ -24,6 +27,8 @@ const Comments = React.createClass({
         const comment = this.refs.comment.value;
 
         this.props.addComment(postId, author, comment);
+
+        this.refs.commentForm.reset();
     },
 
     render(){
