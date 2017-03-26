@@ -20,7 +20,7 @@ const Single = React.createClass({
         return (
             <div className="single-photo">
                 <Photo idx={idx} post={post} {...this.props} />
-                <Comments postComments={postComments} />
+                <Comments postComments={postComments} {...this.props} />
             </div>
         )
     }
